@@ -1,0 +1,302 @@
+(base) apples-MacBook-Pro:Downloads apple$ docker --version
+Docker version 19.03.2, build 6a30dfc
+(base) apples-MacBook-Pro:Downloads apple$ docker-compose --version
+docker-compose version 1.24.1, build 4667896b
+(base) apples-MacBook-Pro:Downloads apple$ docker-machine –version
+docker-machine: '–version' is not a docker-machine command. See 'docker-machine --help'.
+(base) apples-MacBook-Pro:Downloads apple$ docker-machine --version
+docker-machine version 0.16.2, build bd45ab13
+(base) apples-MacBook-Pro:Downloads apple$ docker run -d -p 80:80 --name myserver nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+b8f262c62ec6: Already exists 
+e9218e8f93b1: Pull complete 
+7acba7289aa3: Pull complete 
+Digest: sha256:aeded0f2a861747f43a01cf1018cf9efe2bdd02afd57d2b11fcc7fcadc16ccd1
+Status: Downloaded newer image for nginx:latest
+b1809e2965afd4fdcf3aa77e1769fe63ed01e10af6c281a88144c2d1ff6f7530
+(base) apples-MacBook-Pro:Downloads apple$ $ git clone git@github.com:big-data-europe/docker-hadoop.git
+-bash: $: command not found
+(base) apples-MacBook-Pro:Downloads apple$ 
+(base) apples-MacBook-Pro:Downloads apple$ git clone git@github.com:big-data-europe/docker-hadoop.git
+Cloning into 'docker-hadoop'...
+The authenticity of host 'github.com (13.234.210.38)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? Yes
+Warning: Permanently added 'github.com,13.234.210.38' (RSA) to the list of known hosts.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(base) apples-MacBook-Pro:Downloads apple$ sudo git clone git@github.com:big-data-europe/docker-hadoop.git
+Password:
+Cloning into 'docker-hadoop'...
+The authenticity of host 'github.com (13.234.210.38)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,13.234.210.38' (RSA) to the list of known hosts.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(base) apples-MacBook-Pro:Downloads apple$ 
+(base) apples-MacBook-Pro:Downloads apple$ 
+(base) apples-MacBook-Pro:Downloads apple$ git login
+git: 'login' is not a git command. See 'git --help'.
+
+The most similar command is
+	column
+(base) apples-MacBook-Pro:Downloads apple$ git clone https://github.com/big-data-europe/docker-hadoop.git
+Cloning into 'docker-hadoop'...
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 455 (delta 2), reused 6 (delta 2), pack-reused 442
+Receiving objects: 100% (455/455), 98.34 KiB | 308.00 KiB/s, done.
+Resolving deltas: 100% (196/196), done.
+(base) apples-MacBook-Pro:Downloads apple$ cd docker-hadoop/
+(base) apples-MacBook-Pro:docker-hadoop apple$ ls
+Makefile		datanode		hadoop.env		nginx			submit
+README.md		docker-compose-v3.yml	historyserver		nodemanager
+base			docker-compose.yml	namenode		resourcemanager
+(base) apples-MacBook-Pro:docker-hadoop apple$ vim docker-compose.yml
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker-compose up -d
+WARNING: The Docker Engine you're using is running in swarm mode.
+
+Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+
+To deploy your application across the swarm, use `docker stack deploy`.
+
+Creating network "docker-hadoop_default" with the default driver
+Creating volume "docker-hadoop_hadoop_namenode" with default driver
+Creating volume "docker-hadoop_hadoop_datanode" with default driver
+Creating volume "docker-hadoop_hadoop_historyserver" with default driver
+Pulling namenode (bde2020/hadoop-namenode:2.0.0-hadoop3.1.2-java8)...
+2.0.0-hadoop3.1.2-java8: Pulling from bde2020/hadoop-namenode
+092586df9206: Pull complete
+a8acd8002e2e: Pull complete
+24a592c772bc: Pull complete
+594b1f9457ca: Pull complete
+8da637f2fa71: Pull complete
+5c42e7defb42: Pull complete
+63ca75618fe6: Pull complete
+06dd07e112e5: Pull complete
+af80c26e797e: Pull complete
+174cba7bdc48: Pull complete
+414f5c17593d: Pull complete
+a660300592ac: Pull complete
+cab8f1a61766: Pull complete
+Digest: sha256:4aab9255fec05a7e3393719a27109c381349d4cb323873d011d0d1d2f5601ab8
+Status: Downloaded newer image for bde2020/hadoop-namenode:2.0.0-hadoop3.1.2-java8
+Pulling datanode (bde2020/hadoop-datanode:2.0.0-hadoop3.1.2-java8)...
+2.0.0-hadoop3.1.2-java8: Pulling from bde2020/hadoop-datanode
+092586df9206: Already exists
+a8acd8002e2e: Already exists
+24a592c772bc: Already exists
+594b1f9457ca: Already exists
+8da637f2fa71: Already exists
+5c42e7defb42: Already exists
+63ca75618fe6: Already exists
+06dd07e112e5: Already exists
+af80c26e797e: Already exists
+174cba7bdc48: Already exists
+d80e2656046a: Pull complete
+fa24b3572637: Pull complete
+09a2db1f06df: Pull complete
+Digest: sha256:6e17cadfb95beea8259f1b2a1aa12c4f939714775cf59e947a7501d04a72869a
+Status: Downloaded newer image for bde2020/hadoop-datanode:2.0.0-hadoop3.1.2-java8
+Pulling resourcemanager (bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.2-java8)...
+2.0.0-hadoop3.1.2-java8: Pulling from bde2020/hadoop-resourcemanager
+092586df9206: Already exists
+a8acd8002e2e: Already exists
+24a592c772bc: Already exists
+594b1f9457ca: Already exists
+8da637f2fa71: Already exists
+5c42e7defb42: Already exists
+63ca75618fe6: Already exists
+06dd07e112e5: Already exists
+af80c26e797e: Already exists
+174cba7bdc48: Already exists
+c8a87bf0c988: Pull complete
+29c9218006ca: Pull complete
+Digest: sha256:7ce9539a2ea9eed0999ed6d243ac0a98c57efa548aa708a7c429f3517b419e8e
+Status: Downloaded newer image for bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.2-java8
+Pulling nodemanager1 (bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.2-java8)...
+2.0.0-hadoop3.1.2-java8: Pulling from bde2020/hadoop-nodemanager
+092586df9206: Already exists
+a8acd8002e2e: Already exists
+24a592c772bc: Already exists
+594b1f9457ca: Already exists
+8da637f2fa71: Already exists
+5c42e7defb42: Already exists
+63ca75618fe6: Already exists
+06dd07e112e5: Already exists
+af80c26e797e: Already exists
+174cba7bdc48: Already exists
+6f6242ba99e3: Pull complete
+a5f5d09797e0: Pull complete
+Digest: sha256:6fd2fc636e052c7e420f20372dfd00c7d07dd677dbfbddeb76073aa4b3be432f
+Status: Downloaded newer image for bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.2-java8
+Pulling historyserver (bde2020/hadoop-historyserver:2.0.0-hadoop3.1.2-java8)...
+2.0.0-hadoop3.1.2-java8: Pulling from bde2020/hadoop-historyserver
+092586df9206: Already exists
+a8acd8002e2e: Already exists
+24a592c772bc: Already exists
+594b1f9457ca: Already exists
+8da637f2fa71: Already exists
+5c42e7defb42: Already exists
+63ca75618fe6: Already exists
+06dd07e112e5: Already exists
+af80c26e797e: Already exists
+174cba7bdc48: Already exists
+7dc7e01e5a90: Pull complete
+2d49b7a799ad: Pull complete
+c47073c33bbd: Pull complete
+Digest: sha256:4dde3a881b40dcd77d26e4fcb9ad0d2ed150da51f088c7b05ca427d40b0f255f
+Status: Downloaded newer image for bde2020/hadoop-historyserver:2.0.0-hadoop3.1.2-java8
+Creating namenode        ... done
+Creating historyserver   ... done
+Creating nodemanager     ... done
+Creating resourcemanager ... done
+Creating datanode        ... done
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker ps
+CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS                             PORTS                              NAMES
+020a100c04d5        bde2020/hadoop-datanode:2.0.0-hadoop3.1.2-java8          "/entrypoint.sh /run…"   17 seconds ago      Up 13 seconds (health: starting)   9864/tcp                           datanode
+bab301f6c67f        bde2020/hadoop-namenode:2.0.0-hadoop3.1.2-java8          "/entrypoint.sh /run…"   17 seconds ago      Up 13 seconds (health: starting)   0.0.0.0:9870->9870/tcp             namenode
+1943995e2686        bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.2-java8       "/entrypoint.sh /run…"   17 seconds ago      Up 14 seconds (health: starting)   8042/tcp                           nodemanager
+4d4498e2d725        bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.2-java8   "/entrypoint.sh /run…"   17 seconds ago      Up 14 seconds (health: starting)   8088/tcp                           resourcemanager
+eb13cb1d23eb        bde2020/hadoop-historyserver:2.0.0-hadoop3.1.2-java8     "/entrypoint.sh /run…"   17 seconds ago      Up 14 seconds (health: starting)   8188/tcp                           historyserver
+b1809e2965af        nginx                                                    "nginx -g 'daemon of…"   11 minutes ago      Up 11 minutes                      0.0.0.0:80->80/tcp                 myserver
+3ddf771cb60d        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5006->5006/tcp   registry5
+94d6b772f004        registry                                                 "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5004->5004/tcp   xyz2
+9fa1d41f2dc5        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5003->5003/tcp   xyz
+9410bb206fb2        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5001->5001/tcp   registry1
+b07c84311049        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5005->5005/tcp   resgistry_witty2
+1e44b5de1974        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          0.0.0.0:5000->5000/tcp             resgistry_witty
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker exec -it namenode bash
+root@bab301f6c67f:/# 
+root@bab301f6c67f:/# mkdir input
+root@bab301f6c67f:/# echo "Hello World" >input/f1.txt
+root@bab301f6c67f:/# hadoop fs -mkdir -p input
+WARNING: HADOOP_PREFIX has been replaced by HADOOP_HOME. Using value of HADOOP_PREFIX.
+root@bab301f6c67f:/# hdfs dfs -put ./input/* input
+WARNING: HADOOP_PREFIX has been replaced by HADOOP_HOME. Using value of HADOOP_PREFIX.
+root@bab301f6c67f:/# 
+root@bab301f6c67f:/# 
+root@bab301f6c67f:/# docker container ls
+bash: docker: command not found
+root@bab301f6c67f:/# exit
+exit
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker container ls
+CONTAINER ID        IMAGE                                                    COMMAND                  CREATED              STATUS                        PORTS                              NAMES
+020a100c04d5        bde2020/hadoop-datanode:2.0.0-hadoop3.1.2-java8          "/entrypoint.sh /run…"   About a minute ago   Up About a minute (healthy)   9864/tcp                           datanode
+bab301f6c67f        bde2020/hadoop-namenode:2.0.0-hadoop3.1.2-java8          "/entrypoint.sh /run…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:9870->9870/tcp             namenode
+1943995e2686        bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.2-java8       "/entrypoint.sh /run…"   About a minute ago   Up About a minute (healthy)   8042/tcp                           nodemanager
+4d4498e2d725        bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.2-java8   "/entrypoint.sh /run…"   About a minute ago   Up About a minute (healthy)   8088/tcp                           resourcemanager
+eb13cb1d23eb        bde2020/hadoop-historyserver:2.0.0-hadoop3.1.2-java8     "/entrypoint.sh /run…"   About a minute ago   Up About a minute (healthy)   8188/tcp                           historyserver
+b1809e2965af        nginx                                                    "nginx -g 'daemon of…"   12 minutes ago       Up 12 minutes                 0.0.0.0:80->80/tcp                 myserver
+3ddf771cb60d        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago         Up 6 days                     5000/tcp, 0.0.0.0:5006->5006/tcp   registry5
+94d6b772f004        registry                                                 "/entrypoint.sh /etc…"   2 months ago         Up 6 days                     5000/tcp, 0.0.0.0:5004->5004/tcp   xyz2
+9fa1d41f2dc5        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago         Up 6 days                     5000/tcp, 0.0.0.0:5003->5003/tcp   xyz
+9410bb206fb2        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago         Up 6 days                     5000/tcp, 0.0.0.0:5001->5001/tcp   registry1
+b07c84311049        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago         Up 6 days                     5000/tcp, 0.0.0.0:5005->5005/tcp   resgistry_witty2
+1e44b5de1974        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago         Up 6 days                     0.0.0.0:5000->5000/tcp             resgistry_witty
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker cp ../hadoop-mapreduce-examples-2.7.1-sources.jar cb0c13085cd3:hadoop-mapreduce-examples-2.7.1-sources.jar
+lstat /Users/apple/Downloads/hadoop-mapreduce-examples-2.7.1-sources.jar: no such file or directory
+(base) apples-MacBook-Pro:docker-hadoop apple$ ls
+Makefile		datanode		hadoop.env		nginx			submit
+README.md		docker-compose-v3.yml	historyserver		nodemanager
+base			docker-compose.yml	namenode		resourcemanager
+(base) apples-MacBook-Pro:docker-hadoop apple$ pwd
+/Users/apple/Downloads/docker-hadoop
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker cp ../hadoop-mapreduce-examples-2.7.1-sources.jar cb0c13085cd3:hadoop-mapreduce-examples-2.7.1-sources.jar
+Error: No such container:path: cb0c13085cd3:.
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker cp ../hadoop-mapreduce-examples-2.7.1-sources.jar bab301f6c67f:hadoop-mapreduce-examples-2.7.1-sources.jar
+(base) apples-MacBook-Pro:docker-hadoop apple$ 
+(base) apples-MacBook-Pro:docker-hadoop apple$ docker exec -it namenode bash
+root@bab301f6c67f:/# hadoop jar hadoop-mapreduce-examples-2.7.1-sources.jar org.apache.hadoop.examples.WordCount input output
+WARNING: HADOOP_PREFIX has been replaced by HADOOP_HOME. Using value of HADOOP_PREFIX.
+2019-10-15 18:18:56,168 INFO client.RMProxy: Connecting to ResourceManager at resourcemanager/172.21.0.2:8032
+2019-10-15 18:18:56,736 INFO client.AHSProxy: Connecting to Application History server at historyserver/172.21.0.3:10200
+2019-10-15 18:18:57,463 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/root/.staging/job_1571163285089_0001
+2019-10-15 18:18:58,659 INFO input.FileInputFormat: Total input files to process : 1
+2019-10-15 18:18:58,842 INFO mapreduce.JobSubmitter: number of splits:1
+2019-10-15 18:18:59,428 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1571163285089_0001
+2019-10-15 18:18:59,432 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2019-10-15 18:19:00,040 INFO conf.Configuration: resource-types.xml not found
+2019-10-15 18:19:00,044 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2019-10-15 18:19:01,013 INFO impl.YarnClientImpl: Submitted application application_1571163285089_0001
+2019-10-15 18:19:01,255 INFO mapreduce.Job: The url to track the job: http://resourcemanager:8088/proxy/application_1571163285089_0001/
+2019-10-15 18:19:01,264 INFO mapreduce.Job: Running job: job_1571163285089_0001
+2019-10-15 18:19:26,494 INFO mapreduce.Job: Job job_1571163285089_0001 running in uber mode : false
+2019-10-15 18:19:26,504 INFO mapreduce.Job:  map 0% reduce 0%
+2019-10-15 18:19:45,415 INFO mapreduce.Job:  map 100% reduce 0%
+2019-10-15 18:20:09,677 INFO mapreduce.Job:  map 100% reduce 100%
+2019-10-15 18:20:10,745 INFO mapreduce.Job: Job job_1571163285089_0001 completed successfully
+2019-10-15 18:20:12,011 INFO mapreduce.Job: Counters: 53
+	File System Counters
+		FILE: Number of bytes read=44
+		FILE: Number of bytes written=438573
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=120
+		HDFS: Number of bytes written=16
+		HDFS: Number of read operations=8
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Rack-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=54756
+		Total time spent by all reduces in occupied slots (ms)=147616
+		Total time spent by all map tasks (ms)=13689
+		Total time spent by all reduce tasks (ms)=18452
+		Total vcore-milliseconds taken by all map tasks=13689
+		Total vcore-milliseconds taken by all reduce tasks=18452
+		Total megabyte-milliseconds taken by all map tasks=56070144
+		Total megabyte-milliseconds taken by all reduce tasks=151158784
+	Map-Reduce Framework
+		Map input records=1
+		Map output records=2
+		Map output bytes=20
+		Map output materialized bytes=36
+		Input split bytes=108
+		Combine input records=2
+		Combine output records=2
+		Reduce input groups=2
+		Reduce shuffle bytes=36
+		Reduce input records=2
+		Reduce output records=2
+		Spilled Records=4
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=427
+		CPU time spent (ms)=3100
+		Physical memory (bytes) snapshot=418242560
+		Virtual memory (bytes) snapshot=13502201856
+		Total committed heap usage (bytes)=283115520
+		Peak Map Physical memory (bytes)=266072064
+		Peak Map Virtual memory (bytes)=5077897216
+		Peak Reduce Physical memory (bytes)=152170496
+		Peak Reduce Virtual memory (bytes)=8424304640
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=12
+	File Output Format Counters 
+		Bytes Written=16
+root@bab301f6c67f:/# hdfs dfs -cat output/part-r-00000
+WARNING: HADOOP_PREFIX has been replaced by HADOOP_HOME. Using value of HADOOP_PREFIX.
+Hello	1
+World	1
+root@bab301f6c67f:/# 
