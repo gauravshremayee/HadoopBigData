@@ -6,6 +6,9 @@ docker-compose version 1.24.1, build 4667896b
 docker-machine: '–version' is not a docker-machine command. See 'docker-machine --help'.
 (base) apples-MacBook-Pro:Downloads apple$ docker-machine --version
 docker-machine version 0.16.2, build bd45ab13
+
+#################################################################################
+
 (base) apples-MacBook-Pro:Downloads apple$ docker run -d -p 80:80 --name myserver nginx
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
@@ -15,6 +18,10 @@ e9218e8f93b1: Pull complete
 Digest: sha256:aeded0f2a861747f43a01cf1018cf9efe2bdd02afd57d2b11fcc7fcadc16ccd1
 Status: Downloaded newer image for nginx:latest
 b1809e2965afd4fdcf3aa77e1769fe63ed01e10af6c281a88144c2d1ff6f7530
+
+
+Clone hadoop cluster
+----------------------------
 (base) apples-MacBook-Pro:Downloads apple$ $ git clone git@github.com:big-data-europe/docker-hadoop.git
 -bash: $: command not found
 (base) apples-MacBook-Pro:Downloads apple$ 
@@ -61,6 +68,9 @@ Resolving deltas: 100% (196/196), done.
 Makefile		datanode		hadoop.env		nginx			submit
 README.md		docker-compose-v3.yml	historyserver		nodemanager
 base			docker-compose.yml	namenode		resourcemanager
+
+
+
 (base) apples-MacBook-Pro:docker-hadoop apple$ vim docker-compose.yml
 (base) apples-MacBook-Pro:docker-hadoop apple$ docker-compose up -d
 WARNING: The Docker Engine you're using is running in swarm mode.
@@ -174,7 +184,11 @@ b1809e2965af        nginx                                                    "ng
 9fa1d41f2dc5        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5003->5003/tcp   xyz
 9410bb206fb2        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5001->5001/tcp   registry1
 b07c84311049        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          5000/tcp, 0.0.0.0:5005->5005/tcp   resgistry_witty2
-1e44b5de1974        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days                          0.0.0.0:5000->5000/tcp             resgistry_witty
+1e44b5de1974        f32a97de94e1                                             "/entrypoint.sh /etc…"   2 months ago        Up 6 days
+0.0.0.0:5000->5000/tcp             resgistry_witty
+
+#Login to docker container
+
 (base) apples-MacBook-Pro:docker-hadoop apple$ docker exec -it namenode bash
 root@bab301f6c67f:/# 
 root@bab301f6c67f:/# mkdir input
